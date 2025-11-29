@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Promoción de Fiestas</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" type="img/jpeg" href="img/favicon.jpg">
+<style>
+  /* Intro */
+  #intro {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(135deg, #FF3300, #FF6600, #FFD700);
+  }
+
+  #introVideo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    z-index: 5;
+  }
+
+  #logo3d {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    z-index: 10;
+    transition: opacity 1s ease, transform 1s ease;
+  }
+
+  #logo3d img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    animation: giro3d 4s ease-in-out infinite alternate;
+  }
+
+  @keyframes giro3d {
+    0% { transform: perspective(600px) rotateY(-20deg) scale(1); }
+    100% { transform: perspective(600px) rotateY(20deg) scale(1.08); }
+  }
+
+ #content {
+    display: none;
+    opacity: 0;
+    transition: opacity 1s ease;
+    background: #fff;
+    padding: 20px;
+    color: #050505;
+    height: 100vh;          /* ocupa toda la ventana */
+    width: 100%;             /* ocupa todo el ancho */
+    box-sizing: border-box;
+    overflow-y: scroll;      /* permite deslizar verticalmente */
+    
+    /* OCULTAR BARRA DE SCROLL */
+    scrollbar-width: none;   /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+    scroll-behavior: smooth;
+}
+
+#content::-webkit-scrollbar {
+    display: none;           /* Chrome, Safari, Opera */
+}
+
+
+</style>
+</head>
+<body>
+
+
+
+<div id="intro">
+  <video id="introVideo" autoplay muted playsinline>
+    <source src="video/logofueg1.mp4" type="video/mp4">
+  </video>
+
+  <div id="logo3d">
+    <img src="img/Fenix.jpg" alt="Logo 3D">
+  </div>
+
+  <audio id="introAudio" src="audio/intro.mp3"></audio>
+</div>
+
+<!-- INICIO DEL CONTENIDO LOCAL -->
+<div id="content">
+
+<header style="
+    position:relative;      /* necesario para que el video se quede dentro */
+    overflow:hidden;        /* oculta excedentes del video */
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    gap:50px;
+    padding:100px 30px;
+    background:oklch(44.063% 0.26191 270.889);
+    backdrop-filter:blur(6px);
+    border-radius:999px;
+    max-width:100%;
+    margin:0 auto 50px auto;
+    box-shadow:0 4px 20px #f6f5f800;
+">
+
+    <!-- VIDEO DE FONDO -->
+    <video autoplay muted loop playsinline
+        style="
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            object-fit:cover;
+            z-index:-1;         /* detrás del contenido */
+            border-radius:inherit;
+        ">
+        <source src="video/fondo.mp4" type="video/mp4">
+    </video>  
+    <!-- FIN VIDEO -->
+
+    <img src="img/logo.png" alt="Logo"
+        style="width:90px; height:90px; border-radius:50%;">
+
+    <h1 style="
+        margin:0;
+        font-size:28px;
+        font-weight:700;
+        color:#ffffff;
+        text-align: center;
+    ">
+        Fenix Project
+    </h1>
+
+    <p style="
+        max-width:700px;
+        font-size:18px;
+        color:#fffcfc;
+        padding-left:60px;
+        margin:5;
+    ">
+      Somos especialistas en crear momentos inolvidables.
+      Disfruta nuestros servicios de organización de eventos,
+      decoración y todo lo necesario para que tu celebración sea única..
+    </p>
+
+    <!-- MENÚ -->
+    <div style="
+        margin-left:auto;
+        width:40px;
+        height:30px;
+        display:flex;
+        flex-direction:column;
+        justify-content:space-between;
+        cursor:pointer;
+    ">
+        <span style="display:block; height:5px; background:#f1efef; border-radius:5px;"></span>
+        <span style="display:block; height:5px; background:#f7f4f4; border-radius:5px;"></span>
+        <span style="display:block; height:5px; background:#faf7f7; border-radius:5px;"></span>
+    </div>
+
+</header>
+
+
+<!-- ⭐ TEXTO DEBAJO (FUERA DE LA CÁPSULA) -->
+<div style="height:40px;"></div>
+
+<p style="
+    max-width:900px;
+    font-size:32px;
+    color:#0e0d0d;
+    font-weight:600;
+    font-family: 'Georgia', 'Times New Roman', serif; /* ELEGANTE */
+    margin:0 auto 50px auto;  /* espacio arriba y abajo */
+    text-align:center;
+    letter-spacing:2px;       /* separación de letras */
+">
+    Donde los sueños se hacen realidad
+</p>
+
+<!-- ⭐ TEXTO NUEVO DEBAJO -->
+<p style="
+    max-width:850px;
+    font-size:20px;
+    color:#333;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    margin:0 auto 50px auto;
+    text-align:center;
+    line-height:1.6;
+">
+    Trabajamos para que disfrutes sin preocupaciones y vivas una celebración que supere todas tus expectativas.  
+    Sabemos que no solo estás organizando una fiesta… estás creando un recuerdo que permanecerá para siempre en el corazón de quienes lo viven.
+</p>
+
+
+<!-- ESPACIO ANTES DE LAS FOTOS -->
+<div style="height:30px;"></div>
+
+
+  <!-- Imágenes principales -->
+  <div style="text-align:center;">
+    
+    <img src="img/1.jpg" alt="Imagen 1" style="max-width:90%; display:block; margin:0 auto 30px auto; border-radius:10px;">
+    <img src="img/2.jpg" alt="Imagen 2" style="max-width:90%; display:block; margin:0 auto 30px auto; border-radius:10px;">
+    <img src="img/3.jpg" alt="Imagen 3" style="max-width:90%; display:block; margin:0 auto 30px auto; border-radius:10px;">
+    <img 
+        src="https://www.kolibrieventos.com/wp-content/uploads/2023/02/photobooth-kolibri-eventos-1024x683.png" 
+        alt="Photo Booth en Kolibrí Eventos" 
+        style="max-width:90%; display:block; margin:0 auto 30px auto; border-radius:10px;"
+        srcset="https://www.kolibrieventos.com/wp-content/uploads/2023/02/photobooth-kolibri-eventos-1024x683.png 1024w, 
+                https://www.kolibrieventos.com/wp-content/uploads/2023/02/photobooth-kolibri-eventos-300x200.png 300w, 
+                https://www.kolibrieventos.com/wp-content/uploads/2023/02/photobooth-kolibri-eventos-768x512.png 768w, 
+                https://www.kolibrieventos.com/wp-content/uploads/2023/02/photobooth-kolibri-eventos-1536x1024.png 1536w, 
+                https://www.kolibrieventos.com/wp-content/uploads/2023/02/photobooth-kolibri-eventos.png 2048w" 
+        sizes="(max-width: 800px) 100vw, 800px">
+  </div>
+
+
+
+  
+  <!-- Sección Experiencias con 3 imágenes alineadas y título/descripción -->
+  <section style="text-align:center; margin:50px 0;">
+    <h2>Nuestras Experiencias</h2>
+    <p>Descubre algunos de nuestros eventos más destacados. Cada detalle hace que la celebración sea única.</p>
+
+    <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap; margin-top:30px;">
+      
+      <!-- Imagen 1 con título y descripción -->
+      <div style="width:30%; max-width:250px; text-align:center;">
+        <img src="img/evento1.png" alt="Evento 1" style="width:100%; border-radius:10px;">
+        <h3 style="margin:10px 0 5px 0;">Fiesta de Cumpleaños</h3>
+        <p style="font-size:14px; color:#050505;">Celebraciones llenas de alegría y diversión para todas las edades.</p>
+      </div>
+
+      <!-- Imagen 2 con título y descripción -->
+      <div style="width:30%; max-width:250px; text-align:center;">
+        <img src="img/evento2.jpg" alt="Evento 2" style="width:100%; border-radius:10px;">
+        <h3 style="margin:10px 0 5px 0;">MARIACHI</h3>
+        <p style="font-size:14px; color:#0a0a0a;">Serenata para la Quinceañera no puede faltar</p>
+      </div>
+
+      <!-- Imagen 3 con título y descripción -->
+      <div style="width:30%; max-width:250px; text-align:center;">
+        <img src="img/evento3.jpg" alt="Evento 3" style="width:100%; border-radius:10px;">
+        <h3 style="margin:10px 0 5px 0;">Bodas</h3>
+        <p style="font-size:14px; color:#0a0a0a;">Momentos inolvidables que merecen ser recordados para siempre.</p>
+      </div>
+
+    </div>
+  </section>
+<!-- Botón flotante de WhatsApp -->
+<a href="https://wa.me/521XXXXXXXXXX" target="_blank" id="whatsappButton">
+  <img src="img/whatsap.webp" alt="WhatsApp" 
+     style="width:45px; height:45px; border-radius:50%; object-fit:cover;">
+
+
+</a>
+
+<!-- Chat pequeño emergente -->
+<div id="chatPopup">
+  <p>Hola 👋, ¿puedo ayudarte?</p>
+  <button onclick="abrirWhatsApp()">Escribir</button>
+</div>
+
+<!-- Footer -->
+<footer style="text-align:center; margin-top:50px; padding:20px; background:#f0f0f0;">
+
+  <!-- Íconos de redes sociales -->
+  <div style="margin-bottom:15px; display:flex; justify-content:center; gap:20px;">
+
+    <a href="https://facebook.com" target="_blank">
+      <img src="img/faceboobk.webp" alt="Facebook"
+      style="
+        width:45px;
+        height:45px;
+        border-radius:12px;     /* ESQUINAS REDONDEADAS */
+        object-fit:cover;
+      ">
+    </a>
+
+    <a href="https://instagram.com" target="_blank">
+      <img src="img/instagram.webp" alt="Instagram"
+      style="
+        width:45px;
+        height:45px;
+        border-radius:12px;     /* ESQUINAS REDONDEADAS */
+        object-fit:cover;
+      ">
+    </a>
+
+    <a href="https://youtube.com" target="_blank">
+      <img src="img/youtu.jpg" alt="YouTube"
+      style="
+        width:35px;
+        height:35px;
+        border-radius:12px;     /* ESQUINAS REDONDEADAS */
+        object-fit:cover;
+      ">
+    </a>
+
+  </div>
+
+  <!-- Derechos de autor -->
+  <div>
+    &copy; 2025 Todos los derechos reservados | Tu Empresa
+  </div>
+
+</footer>
+
+
+
+<style>
+  /* Botón flotante WhatsApp */
+  #whatsappButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    cursor: pointer;
+
+    background: #25d366; 
+    padding: 6px;         /* MÁS PEQUEÑO */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+  /* Chat popup */
+  #chatPopup {
+    position: fixed;
+    bottom: 90px; /* arriba del botón */
+    right: 20px;
+    background: #25d366;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    display: none;
+    z-index: 999;
+    font-family: sans-serif;
+  }
+
+  #chatPopup p {
+    margin: 0 0 5px 0;
+  }
+
+  #chatPopup button {
+    background: white;
+    color: #25d366;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+</style>
+
+<script>
+  // Mostrar el chat cuando se llega al final de la página
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight;
+    const clientHeight = document.documentElement.clientHeight;
+
+    if (scrollTop + clientHeight >= scrollHeight - 50) {
+      document.getElementById('chatPopup').style.display = 'block';
+    }
+  });
+
+  // Abrir WhatsApp al pulsar
+  function abrirWhatsApp() {
+    window.open('https://wa.me/521XXXXXXXXXX?text=Hola,%20quiero%20información', '_blank');
+  }
+</script>
+
+</div>
+<!-- FIN DEL CONTENIDO LOCAL -->
+
+
+<style>
+  #content {
+    display: none;
+    opacity: 0;
+    transition: opacity 1s ease;
+    padding: 20px;
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100%;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    background: #f5f5f5;
+
+    /* Ocultar scroll */
+    scrollbar-width: none;        /* Firefox */
+    -ms-overflow-style: none;     /* IE 10+ */
+  }
+
+  #content::-webkit-scrollbar {
+    display: none;                /* Chrome, Safari, Opera */
+  }
+
+  .blog-header h1 {
+    color: #FF3300;
+    margin: 10px 0 5px 0;
+  }
+
+  .blog-header p {
+    color: #333;
+    margin: 0 0 20px 0;
+  }
+
+  .blog-post {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+
+  .blog-post img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+
+  .blog-post h2 {
+    margin: 10px 0;
+    color: #FF3300;
+  }
+
+  .blog-post p {
+    color: #333;
+    line-height: 1.5;
+  }
+</style>
+
+  <!-- FIN DEL CONTENIDO LOCAL -->
+</div>
+
+<script>
+const introVideo = document.getElementById('introVideo');
+const introAudio = document.getElementById('introAudio');
+const intro = document.getElementById('intro');
+const content = document.getElementById('content');
+const logo3d = document.getElementById('logo3d');
+
+// Reproducir audio al cargar
+window.onload = () => {
+  introAudio.play().catch(() => console.log("Audio requiere interacción"));
+};
+
+// Ajustar altura
+function ajustarIntro() {
+  intro.style.height = window.innerHeight + 'px';
+}
+window.onresize = ajustarIntro;
+ajustarIntro();
+
+// Cuando termina el video
+introVideo.onended = () => {
+  // Mostrar logo 3D
+  setTimeout(() => {
+    logo3d.style.opacity = "1";
+    logo3d.style.transform = "translate(-50%, -50%) scale(1)";
+  }, 500);
+
+  // Ocultar video
+  introVideo.style.transition = "opacity 1s ease";
+  introVideo.style.opacity = "0";
+
+  // Después de 3 segundos, ocultar intro y mostrar contenido
+  setTimeout(() => {
+    intro.style.transition = "opacity 1s ease";
+    intro.style.opacity = "0";
+
+    setTimeout(() => {
+    intro.style.display = "none";     // Oculta la intro
+        content.style.display = "block";  // Muestra el contenido
+        setTimeout(() => content.style.opacity = 1, 50); 
+}, 1000);  
+  }, 3000);
+};
+
+
+<!-- FIN DEL CONTENIDO LOCAL -->
+
+</script>
+
+</body>
+</html>
